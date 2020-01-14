@@ -2,7 +2,7 @@ let express = require('express');
 let app = express();
 let morgan = require('morgan');
 let bodyParser = require('body-parser');
-let port = process.env.PORT || 8181;
+let port = process.env.PORT || 8282;
 let pet = require('./routes/pet');
 
 //don't show the log when it is test
@@ -28,6 +28,8 @@ app.route("/pets/:id")
     .put(pet.updatePet);
 
 app.listen(port,"0.0.0.0");
+var datetime = new Date();
+console.log("Date Time: " + datetime);
 console.log("Listening on port " + port);
 
 module.exports = app; // for testing
